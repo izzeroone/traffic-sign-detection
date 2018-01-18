@@ -136,4 +136,33 @@ void seg_norm_hue(const cv::Mat& ihls_image, cv::Mat& nhs_image, const int& colo
     }
 }
 
+    void seg_norm_hue2(const cv::Mat& ihls_image, cv::Mat& nhs_image) {
+
+
+
+        // Check that the image has three channels
+        CV_Assert(ihls_image.channels() == 3);
+
+        // Create the ouput the image
+        nhs_image.create(ihls_image.size(), CV_8UC1);
+
+//            for (int i = 0; i < ihls_image.rows; ++i) {
+//                const uchar *ihls_data = ihls_image.ptr<uchar> (i);
+//                uchar *nhs_data = nhs_image.ptr<uchar> (i);
+//                for (int j = 0; j < ihls_image.cols; ++j) {
+//                    uchar s = *ihls_data++;
+//                    // Although l is not being used and we could have
+//                    // replaced the next line with ihls_data++
+//                    // but for the sake of readability, we left it as it it.
+//                    uchar l = *ihls_data++;
+//                    uchar h = *ihls_data++;
+//                    *nhs_data++ = (((h < B_HUE_MAX || h > B_HUE_MIN) && s > B_SAT_MIN) ) ? 255 : 0;
+//                    if(((h < B_HUE_MAX || h > B_HUE_MIN) && s > B_SAT_MIN)){
+//                        *nhs_data = 255;
+//                    }
+//                }
+//            }
+
+    }
+
 }

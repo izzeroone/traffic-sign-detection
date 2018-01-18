@@ -116,10 +116,15 @@ int main(int argc, char *argv[]) {
     cv::Mat nhs_image_seg_red;
 
     segmentation::seg_norm_hue(ihls_image, nhs_image_seg_red, nhs_mode);
-    //nhs_mode = 1; // nhs_mode == 0 -> red segmentation / nhs_mode == 1 -> blue segmentation
+    cv::namedWindow("Window223", CV_WINDOW_AUTOSIZE);
+    cv::imshow("Window223",  nhs_image_seg_red);
+    cv::waitKey(0);
+    nhs_mode = 1; // nhs_mode == 0 -> red segmentation / nhs_mode == 1 -> blue segmentation
     //cv::Mat nhs_image_seg_blue;
     cv::Mat nhs_image_seg_blue = nhs_image_seg_red.clone();
-    //segmentation::seg_norm_hue(ihls_image, nhs_image_seg_blue, nhs_mode);
+    segmentation::seg_norm_hue(ihls_image, nhs_image_seg_blue, nhs_mode);
+    cv::imshow("Window223",  nhs_image_seg_blue);
+    cv::waitKey(0);
     // Segmentation of the log chromatic image
     // TODO - DEFINE THE THRESHOLD FOR THE BLUE TRAFFIC SIGN. FOR NOW WE AVOID THE PROCESSING FOR BLUE SIGN AND LET ONLY THE OTHER METHOD TO TAKE CARE OF IT.
     cv::Mat log_image_seg;
